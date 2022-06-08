@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const uuid = require('../public/assets/js/uuid');
 const fs = require('fs');
-const PORT = process.env.PORT || 3001;
+
 
 //api processes
 //first, get request for viewing notes
@@ -78,8 +78,6 @@ router.delete(`api/notes/:id`, (req, res) => {
     });
 })
 
-app.listen(PORT, () => {
-    console.log(`Application active and listening on localhost:${PORT}.`)
-});
+
 
 module.exports = router;
