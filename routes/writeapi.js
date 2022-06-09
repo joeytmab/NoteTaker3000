@@ -1,4 +1,4 @@
-const router = require('express').Router();
+//const router = require('express').Router();
 const uuid = require('../public/assets/js/uuid');
 const fs = require('fs');
 
@@ -7,19 +7,19 @@ const fs = require('fs');
 //first, get request for viewing notes
 //next, post request for adding additional note
 //finally, new note is parsed, then stringified, then we use fs.writeFile to add new note to existing db
-//module.exports = function(app) {
+module.exports = function(app) {
 
-router.get('/api/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     fs.readFile('.db/db.json', 'utf8', (err, data) => {
         if(err) {
-            throw err;
+            console.log(err);
         } else {
             res.json(JSON.parse(data))
     }
 })
 });
 
-router.post('/api/notes', (req, res) => {
+app.post('/api/notes', (req, res) => {
 
     const {title, text} = req.body;
 
@@ -57,7 +57,7 @@ router.post('/api/notes', (req, res) => {
 //create .filter using ID of note to be deleted
 //once completed, rewrite file with fs for updated note array
 
-router.delete(`api/notes/:id`, (req, res) => {
+app.delete(`api/notes/:id`, (req, res) => {
 
     const currentNoteId = req.params.id;
 
@@ -79,6 +79,7 @@ router.delete(`api/notes/:id`, (req, res) => {
     });
 })
 
+}
 
 
-module.exports = router;
+//module.exports = router;

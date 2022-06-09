@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 3001;
 app.use(express.static('public'));
 
 //routes
-app.use(require('./routes/view-html'));
-app.use(require('./routes/write-api'));
+app.use(require('./routes/viewhtml'));
+app.use(require('./routes/writeapi'));
 
 //data parsing via middleware
 app.use(express.json());
