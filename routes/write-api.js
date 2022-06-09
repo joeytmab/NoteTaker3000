@@ -7,6 +7,7 @@ const fs = require('fs');
 //first, get request for viewing notes
 //next, post request for adding additional note
 //finally, new note is parsed, then stringified, then we use fs.writeFile to add new note to existing db
+//module.exports = function(app) {
 
 router.get('/api/notes', (req, res) => {
     fs.readFile('.db/db.json', 'utf8', (err, data) => {
