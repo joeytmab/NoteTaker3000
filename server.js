@@ -11,14 +11,13 @@ const PORT = process.env.PORT || 3001;
 app.use(express.static('public'));
 
 //routes
-const viewHTML = require('./routes/view-html')(app);
-const writeAPI = require('./routes/write-api')(app);
+app.use(require('./routes/view-html'));
+app.use(require('./routes/write-api'));
 
 //data parsing via middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(viewHTML);
-app.use(writeAPI);
+
 
 app.listen(PORT, () => {
     console.log(`Application active and listening on localhost:${PORT}.`)
