@@ -8,7 +8,7 @@ Using back end application of Express.js, user is able to write down and save no
 
 Below is a gif file showing functionality of the app and its aesthetics on the repository.
 
-![Functionality](./assets/teamgen.gif.gif)
+![Functionality](./assets/notetaker.gif.gif)
 
 ## Installation Parameters
 
